@@ -3,7 +3,7 @@ from openai import OpenAI
 
 base_url = os.getenv("VLLM_BASE_URL", "https://YOUR-RUNPOD-ENDPOINT/v1")
 api_key = os.getenv("VLLM_API_KEY", "local-key")
-model = os.getenv("MODEL_ID", "MiniMaxAI/MiniMax-M2.1")
+model = os.getenv("SERVED_MODEL_NAME") or os.getenv("MODEL_ID", "MiniMaxAI/MiniMax-M2.1")
 
 client = OpenAI(
     base_url=base_url,

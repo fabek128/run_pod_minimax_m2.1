@@ -2,6 +2,12 @@
 
 Serve MiniMaxAI/MiniMax-M2.1 on RunPod using vLLM nightly and an OpenAI-compatible API.
 
+## Inicio rapido
+1) Configura tu pod en RunPod usando la imagen de GHCR y las variables de entorno del archivo `configs/vllm.env.example`.
+2) Copia `.env.example` a `.env` y ajusta `RUNPOD_API_KEY`, `RUNPOD_POD_NAME` y `MODEL_ID` (debe coincidir con el servido en RunPod).
+3) Ejecuta el bootstrap: `powershell -ExecutionPolicy Bypass -File client/python/bootstrap.ps1`.
+4) (Opcional) Levanta una UI tipo ChatGPT: `docker compose --env-file ui\openwebui.env -f ui\openwebui-compose.yml up -d` y abre `http://localhost:3000`.
+
 ## Repo layout
 - docker/ Docker image and entrypoint scripts
 - configs/ Example env file (no secrets)
@@ -23,8 +29,8 @@ docker pull ghcr.io/<OWNER>/<REPO>:v0.1.0
 
 ## Local client (Windows)
 Copy the example env file and run:
-copy client\\python\\.env.example client\\python\\.env
-powershell -ExecutionPolicy Bypass -File client\\python\\run.ps1
+copy .env.example .env
+powershell -ExecutionPolicy Bypass -File client\\python\\bootstrap.ps1
 
 ## Open WebUI env example
 Copy and edit as needed:
