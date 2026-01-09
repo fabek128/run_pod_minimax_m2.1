@@ -5,6 +5,8 @@ __pycache__/
 venv/
 .env
 *.log
+models/
+*.gguf
 
 # Secrets
 *.pem
